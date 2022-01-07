@@ -1,0 +1,76 @@
+port: 7890
+socks-port: 7891
+allow-lan: false
+ipv6: false
+mode: Rule
+log-level: silent
+external-controller: 127.0.0.1:9090
+dns:
+  enable: true
+  ipv6: false
+  nameserver:
+    - https://dns.aa.net.uk/dns-query
+    - https://dns.arapurayil.com/dns-query
+    - https://dns1.ryan-palmer.com/dns-query
+    - https://doh-2.seby.io:443/dns-query
+    - https://dns.nextdns.io/dnscrypt-proxy
+    - https://doh.libredns.gr/dns-query
+    - https://dnsforge.de/dns-query
+    - https://dns.alidns.com/dns-query
+    - https://cloudflare-dns.com/dns-query
+    - https://dns.dnshome.de/dns-query
+    - https://doh.pi-dns.com/dns-query
+    - https://dns.quad9.net/dns-query
+    - https://dnses.alekberg.net/dns-query
+    - tls://dns.quad9.net:853
+    - tls://cloudflare-dns.com:853
+    - tls://dns.google:853
+    - tls://dot.xfinity.com:853
+    - tls://dns.aa.net.uk:853
+    - tls://dns.quad9.net:853
+    - tls://dot.libredns.gr:853
+    - tls://185.253.154.66:4343
+    - tls://116.202.176.26:853
+proxies:
+  - {name: t.me/ircell_net  |1🇩🇪, server: 194.163.134.101, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 'GVoeMsxSdgJ5', udp: true}
+  - {name: t.me/ircell_net  |2🇩🇪, server: 213.136.80.36, port: 989, type: ss, cipher: aes-256-cfb, password: 'f8f7aCzcPKbsF8p3', udp: true}
+  - {name: t.me/ircell_net  |3🇬🇧, server: 198.244.150.26, port: 826, type: ss, cipher: chacha20-ietf-poly1305, password: 'sF43Xt2gONqcgFX563', udp: true}
+  - {name: t.me/ircell_net  |4🇫🇷, server: 141.95.0.26 , port: 826, type: ss, cipher: chacha20-ietf-poly1305, password: 'sF43Xt2gONqcgFX563', udp: true}
+  - {name: t.me/ircell_net  |5🇫🇷, server: 95.85.90.181, port: 812, type: ss, cipher: chacha20-ietf-poly1305, password: 'G!yBwPWH3Vao', udp: true}
+  - {name: t.me/ircell_net  |6🇮🇹, server: 185.213.21.6, port: 2376, type: ss, cipher: aes-256-gcm, password: 'faBAoD54k87UJG7', udp: true}
+  - {name: t.me/ircell_net  |7🇦🇿, server: 94.20.154.38, port: 50003, type: ss, cipher: aes-256-cfb, password: '8460400130', udp: true}
+  - {name: t.me/ircell_net  |8🇨🇭, server: 212.237.210.158, port: 989, type: ss, cipher: aes-256-cfb, password: 'f8f7aCzcPKbsF8p3', udp: true}
+  - {name: t.me/ircell_net  |9🇱🇺, server: 172.255.248.35, port: 989, type: ss, cipher: aes-256-cfb, password: 'f8f7aCzcPKbsF8p3', udp: true}
+  - {name: t.me/ircell_net  |10🇳🇱, server: 37.218.245.122, port: 443, type: ss, cipher: chacha20-ietf-poly1305, password: 'EoSN0YyDj1kS', udp: true}
+proxy-groups:
+  - name: ✅ SELECT
+    type: select
+    proxies:
+      - 🤖 AUTO
+      - t.me/ircell_net  |1🇩🇪
+      - t.me/ircell_net  |2🇩🇪
+      - t.me/ircell_net  |3🇬🇧
+      - t.me/ircell_net  |4🇫🇷
+      - t.me/ircell_net  |5🇫🇷
+      - t.me/ircell_net  |6🇮🇹
+      - t.me/ircell_net  |7🇦🇿
+      - t.me/ircell_net  |8🇨🇭
+      - t.me/ircell_net  |9🇱🇺
+      - t.me/ircell_net  |10🇳🇱
+  - name: 🤖 AUTO
+    type: url-test
+    url: https://dns.google.com/
+    interval: 300
+    proxies:
+      - t.me/ircell_net  |1🇩🇪
+      - t.me/ircell_net  |2🇩🇪
+      - t.me/ircell_net  |3🇬🇧
+      - t.me/ircell_net  |4🇫🇷
+      - t.me/ircell_net  |5🇫🇷
+      - t.me/ircell_net  |6🇮🇹
+      - t.me/ircell_net  |7🇦🇿
+      - t.me/ircell_net  |8🇨🇭
+      - t.me/ircell_net  |9🇱🇺
+      - t.me/ircell_net  |10🇳🇱
+rules:
+ - MATCH,🤖 AUTO,✅ SELECT
