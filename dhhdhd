@@ -1,0 +1,30 @@
+{
+  "log": {
+    "level": "info"
+  },
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "inet4_address": [
+        "192.168.0.1/30" // تخصیص یک رنج کوچک IPv4
+      ],
+      "auto_route": true,
+      "strict_route": true,
+      "dns_hijack": [
+        "udp://8.8.8.8:53"
+      ]
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "ssh",
+      "tag": "ssh-out",
+      "server": "luna.bugfreenet.online",
+      "server_port": 3131,
+      "user": "f24728",
+      "password": "355323"
+    }
+  ]
+}
