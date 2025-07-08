@@ -1,0 +1,21 @@
+{
+  "inbounds": [
+    {
+      "type": "tun",
+      "tag": "tun-in",
+      "interface_name": "tun0",
+      "auto_route": true,
+      "strict_route": true
+    }
+  ],
+  "outbounds": [
+    {
+      "type": "ssh",
+      "tag": "ssh-out",
+      "server": "luna.bugfreenet.online",
+      "server_port": 3131,
+      "user": "f24728",
+      "password": "355323"
+    }
+  ]
+}
