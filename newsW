@@ -1,0 +1,8 @@
+{
+  "type": "ssh",
+  "tag": "ssh-out",
+  "server": "luna.bugfreenet.online",
+  "server_port": 3131,
+  "user": "f24728",
+  "password": "355323"
+}
